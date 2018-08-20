@@ -45,7 +45,8 @@ sub Type::Tiny::TYPEDSCALAR {
 	my $check = $type->compiled_check;
 	my $wiz   = wizard(
 		set => sub {
-			package Type::Tiny;
+			package # hide from PAUSE
+				Type::Tiny;
 			$check->(${$_[0]}) or Carp::croak($type->get_message(${$_[0]}));
 		},
 	);
