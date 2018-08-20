@@ -5,7 +5,7 @@ use warnings;
 package Lexical::TypeTiny;
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.001';
+our $VERSION   = '0.002';
 	
 use Types::Standard qw(Any);
 use Lexical::Types qw();
