@@ -139,6 +139,9 @@ Bad:
 
 =head1 BUGS
 
+There currently seem to be issues with threaded Perls. Hopefully these can
+be solved pretty soon.
+
 Please report any bugs to
 L<http://rt.cpan.org/Dist/Display.html?Queue=Lexical-TypeTiny>.
 

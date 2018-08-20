@@ -8,4 +8,5 @@
 	issued  2018-08-20;
 	changeset [
 		item "Hide Type::Tiny package from PAUSE indexer."^^Packaging;
+		item "Mention problems with threaded Perl in pod."^^Documentation;
 	].
