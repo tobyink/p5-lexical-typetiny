@@ -32,7 +32,7 @@ sub setup_for {
 		Lexical::Types->import::into($caller, as => sub { Any });
 	}
 	else {
-		Lexical::Types->import::into($caller, as => sub { $reg->lookup($_[0]) });
+		Lexical::Types->import::into($caller, as => sub { Type::Registry->for_class($caller)->lookup($_[0]) });
 	}
 }
 
