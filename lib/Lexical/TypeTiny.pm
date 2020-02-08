@@ -38,16 +38,19 @@ sub setup_for {
 
 sub Type::Tiny::TYPEDSCALAR {
 	my $type  =  $_[0];
-	
 	return if $type == Any;
 	
-	my $var   = \$_[1];
-	my $check = $type->compiled_check;
+	my $var  = \$_[1];
+	my @data = ($type->compiled_check, $type);
+	
 	my $wiz   = wizard(
+		data => sub { \@data },
 		set => sub {
 			package # hide from PAUSE
 				Type::Tiny;
-			$check->(${$_[0]}) or Carp::croak($type->get_message(${$_[0]}));
+			my ($check, $constraint) = @{$_[1]};
+			$check->(${$_[0]}) or Carp::croak($constraint->get_message(${$_[0]}));
+			();
 		},
 	);
 	cast $_[1], $wiz;
